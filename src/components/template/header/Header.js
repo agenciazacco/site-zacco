@@ -28,10 +28,9 @@ const Logo = styled.div`
     aling-items: center;
     width: 400px;
     height: 100%;
-
     @media (max-width: 700px) {
         width: 150px;
-        height: 100px;
+        height: 90px;
         padding: 12px;
     }
 `;
@@ -43,18 +42,15 @@ const NavMenu = styled.nav`
     padding: 20px;
     width: auto;
     height: 100%;
-
     a {
         padding: 10px;
         color: #f5f5f5;
         font-weight: bold;
         font-size: 1.3rem;
         min-width: 100px;
-
         &:hover {
             color: #444;
         }
-
         @media (max-width: 700px) {
             min-width: 120px;
             border-color: #c21b2b;

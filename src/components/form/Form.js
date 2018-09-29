@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ScrollableAnchor from 'react-scrollable-anchor';
+import { configureAnchors } from 'react-scrollable-anchor';
+
+configureAnchors({offset: -60, scrollDuration: 1000})
+
 
 const FormContainer = styled.div`
     display: flex;
@@ -74,21 +79,21 @@ export default class Form extends Component {
 
     render() {
         return (
-            <FormContainer>
-                
-                <h1>Entre em contato com a ZACCO</h1>
-
-                <FormGroup>
-                    <FormInput placeholder="Nome"/>
-                    <FormInput placeholder="Email"/>
-                </FormGroup>
-                <FormGroup>
-                    <FormTextArea/>
-                </FormGroup>
-                <FormGroup>
-                    <Button>Enviar Mensagem</Button>
-                </FormGroup>
-            </FormContainer>
+            <ScrollableAnchor id={'form'}>
+                <FormContainer>
+                    <h1>Entre em contato com a ZACCO</h1>
+                    <FormGroup>
+                        <FormInput placeholder="Nome"/>
+                        <FormInput placeholder="Email"/>
+                    </FormGroup>
+                    <FormGroup>
+                        <FormTextArea/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Button>Enviar Mensagem</Button>
+                    </FormGroup>
+                </FormContainer>
+            </ScrollableAnchor>
         );
     }
 }

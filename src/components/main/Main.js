@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { HashLink as Link } from 'react-router-hash-link';
+import ScrollableAnchor from 'react-scrollable-anchor';
 
 import backgroundServicos from '../../assets/imgs/servicos/background-full.jpg';
 import pcIcon from '../../assets/imgs/servicos/pc.png';
@@ -35,7 +37,6 @@ const WhoWeAre = styled.div`
     text-decoration-skip: objects ;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-
     h1 {
         font-size: 3rem;
         font-weight: 300;
@@ -53,16 +54,19 @@ const VirtualStores = styled.div`
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
-    min-height: 100vh;
+    min-height: 80vh;
     background: #f2f2f2;
     background-size: cover;
     overflow: hidden;
     background-image: url(${backgroundServicos});
-    
+    @media (max-width: 700px) {
+        min-height: 90vh;
+        padding: 10px 0 10px 0;
+    }
     .title {
         width: 100%;
         font-size: 3rem;
-        margin-top: 40px;
+        margin-top: 20px;
         line-height: 4rem;
         color: #FFF;
         font-family: 'Lato', sans-serif;
@@ -78,11 +82,11 @@ const CardIcon = styled.div`
     justify-content: center;
     align-items: center;
     background: #fff;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     padding: 10px;
-    margin-bottom: 5%;
+    margin-bottom: 20px;
     border: 1px solid #c9c9c9;
     box-shadow: 0 20px 40px -14px rgba(0,0,0,0.10);
 `;
@@ -95,28 +99,28 @@ const Card = styled.div`
     z-index: 100;
     background: rgb(41, 103, 165, .9);
     max-width: 320px;
-    min-height: 600px;
-    margin: 3%;
+    height: 560px;
+    margin: 1%;
     padding: 1%;
     border-radius:10px;
     box-shadow: 0 20px 40px -14px rgba(0,0,0,0.50);
     color: #fff;
-
+    @media (max-width: 700px) {
+        margin: 10px 10px;
+    }
     ${CardIcon} {
         img {
             width: 100px;
             height: 80px;
         }
     }
-
     h1 {
         font-size: 1.2rem;
         line-height: 2rem;
         font-family: 'Lato', sans-serif;
     }
-
     p {
-        padding:  0 20px 0 20px;
+        padding:  0 15px 0 15px;
         font-size: 1rem;
         line-height: 1.2rem;
         font-family: 'Lato', sans-serif;
@@ -194,7 +198,6 @@ const Psites = styled.div`
                 font-size: 1rem; 
             }  
         }
-
         @media (max-width: 1250px) {
             flex-flow: column wrap;
         }
@@ -217,11 +220,9 @@ const Functionalities = styled.div`
     background: #fece00;
     min-height: 90vh;
     padding: 1%;
-
     @media (max-width: 900px) {
         flex-flow: column wrap;
     }
-
     h1 {
         width: 100%;
         font-size: 3rem;
@@ -239,22 +240,16 @@ const Functionalities = styled.div`
         flex-flow: column wrap;
         max-width: 30%;
         padding: 2%;
-
         @media (max-width: 900px) {
             max-width: 100%;
         }
-
-        
-
         h2 {
             font-size: 1.5rem;
             color: #1f4a6e; 
         }
-
         img {
             max-width: 180px;
         }
-
         p {
             align-text: center;
             color: #444;
@@ -305,7 +300,7 @@ export default props => (
                 <CardIcon>
                     <img src={socialIcon}/>
                 </CardIcon>
-                <h1>GESTÃO DE MÍDIAS SOCIAIS</h1>
+                <h1>GESTÃO DE MÍDIAS<br/> SOCIAIS</h1>
                 <p>
                     Aumentamos seu alcance nas redes sociais.
                     Vamos gerenciar suas redes sociais e produzir material publicitário além de prestar
@@ -344,7 +339,7 @@ export default props => (
                     exclusivo e com o melhor custo benefício.
                     Ajudando assim Micro e Pequenas Empresas a conquistarem cada vez mais espaço no mercado.
 
-                    <Button>SOLICITE UMA PROPOSTA</Button>
+                    <Button onClick={() => window.location.href="#form"}>SOLICITE UMA PROPOSTA</Button>
                 </p>
                 <img src={criacaoSites}/>
             </div>
@@ -412,12 +407,14 @@ export default props => (
                 <p>
                     Pensando no profisisonal liberal, no MEI, no micro e pequeno Empresário, nós da ZACCO elaboramos planos
                     especiais para criação de  sites profissionais a baixo custo, para que você pequeno empreendedor possa ter um site profissional
-                    <Button>NOSSOS PLANOS</Button>
+                    {/* <Button onClick="#form"  href="#form">NOSSOS PLANOS</Button> */}
                 </p>
                 <img src={profissionais}/>
             </div>
         </Psites>
+        <ScrollableAnchor id={'cards'}>
+            <PriceCards/>
+        </ScrollableAnchor>
 
-        <PriceCards/>
     </Main>
 );

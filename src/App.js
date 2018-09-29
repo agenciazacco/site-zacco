@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Main/>
-        <Form/>
+        <Form id='form'/>
         <Footer/>
       </div>
     );
