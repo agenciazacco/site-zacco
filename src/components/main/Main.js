@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HashLink as Link } from 'react-router-hash-link';
 import ScrollableAnchor from 'react-scrollable-anchor';
 
 import backgroundServicos from '../../assets/imgs/servicos/background-full.jpg';
